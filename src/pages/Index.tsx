@@ -1,12 +1,59 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useEffect } from "react";
+import CyberGrid from "@/components/CyberGrid";
+import Sidebar from "@/components/Sidebar";
+import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
+import Skills from "@/components/sections/Skills";
+import Services from "@/components/sections/Services";
+import Portfolio from "@/components/sections/Portfolio";
+import Experience from "@/components/sections/Experience";
+import Contact from "@/components/sections/Contact";
 
 const Index = () => {
+  const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "about", "skills", "services", "portfolio", "experience", "contact"];
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleNavigate = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background text-foreground">
+      <CyberGrid />
+      <Sidebar activeSection={activeSection} onNavigate={handleNavigate} />
+      
+      <main className="lg:ml-80 relative">
+        <Hero onNavigate={handleNavigate} />
+        <About />
+        <Skills />
+        <Services />
+        <Portfolio />
+        <Experience />
+        <Contact />
+      </main>
     </div>
   );
 };
