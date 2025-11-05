@@ -33,13 +33,14 @@ const Experience = () => {
   return (
     <section id="experience" className="min-h-screen flex items-center py-20 px-6">
       <div className="max-w-4xl mx-auto w-full">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gradient">Experience</h2>
+        <h2 className="text-4xl md:text-5xl font-serif font-black mb-2 uppercase border-b-4 border-primary inline-block">Experience</h2>
+        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-12">Career Timeline</p>
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-0 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary" />
+          <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-primary" />
 
-          <div className="space-y-12">
+          <div className="space-y-8">
             {experiences.map((exp, idx) => (
               <div
                 key={exp.title}
@@ -47,21 +48,21 @@ const Experience = () => {
                 style={{ animationDelay: `${idx * 100}ms` }}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-0 md:left-6 top-2 w-5 h-5 rounded-full bg-card border-2 border-primary glow-cyan" />
+                <div className="absolute left-0 md:left-6 top-2 w-5 h-5 bg-primary border-2 border-background" />
 
-                <div className="p-6 rounded-xl bg-card border border-primary/20 hover:border-primary/50 transition-all hover:glow-cyan group">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                    <h3 className="text-2xl font-semibold">{exp.title}</h3>
-                    <span className="text-sm text-muted-foreground mt-1 md:mt-0">{exp.period}</span>
+                <div className="p-6 bg-card border-2 border-foreground/20 hover:border-primary transition-all group">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2 pb-2 border-b border-foreground/20">
+                    <h3 className="text-lg font-serif font-bold uppercase">{exp.title}</h3>
+                    <span className="text-xs text-muted-foreground mt-1 md:mt-0 uppercase tracking-wider">{exp.period}</span>
                   </div>
                   
                   <div className="mb-3">
-                    <span className={`inline-block px-3 py-1 rounded-full bg-gradient-to-r ${exp.color} text-sm font-medium`}>
+                    <span className="inline-block px-3 py-1 bg-primary text-background text-xs font-bold uppercase tracking-wider">
                       {exp.company}
                     </span>
                   </div>
                   
-                  <p className="text-muted-foreground leading-relaxed">{exp.description}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{exp.description}</p>
                 </div>
               </div>
             ))}

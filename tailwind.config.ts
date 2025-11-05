@@ -68,7 +68,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Space Mono', 'Courier New', 'monospace'],
+        serif: ['Playfair Display', 'Georgia', 'serif'],
+        mono: ['Space Mono', 'Courier New', 'monospace'],
       },
       borderRadius: {
         lg: "var(--radius)",

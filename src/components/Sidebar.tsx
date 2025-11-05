@@ -36,13 +36,13 @@ const Sidebar = ({ activeSection, onNavigate }: SidebarProps) => {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-6 left-6 z-50 lg:hidden p-2 rounded-lg bg-card border border-primary/30 hover:border-primary transition-colors glow-cyan"
+        className="fixed top-6 left-6 z-50 lg:hidden p-2 bg-card border border-primary hover:bg-primary hover:text-background transition-colors"
         aria-label="Toggle menu"
       >
         {isOpen ? (
-          <X className="w-6 h-6 text-primary" />
+          <X className="w-6 h-6" />
         ) : (
-          <Menu className="w-6 h-6 text-primary" />
+          <Menu className="w-6 h-6" />
         )}
       </button>
 
@@ -55,36 +55,36 @@ const Sidebar = ({ activeSection, onNavigate }: SidebarProps) => {
         <div className="p-8 flex flex-col h-full">
           {/* Profile Section */}
           <div className="mb-8">
-            <div className="relative w-32 h-32 mx-auto mb-6 group">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-secondary opacity-75 blur-md group-hover:opacity-100 transition-opacity" />
+            <div className="relative w-32 h-32 mx-auto mb-6 group border-2 border-foreground/20">
               <img
                 src={profileImage}
                 alt="Mizanur Rahman"
-                className="relative w-full h-full rounded-full object-cover border-2 border-primary/50"
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all"
               />
+              <div className="absolute inset-0 border border-primary opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             
-            <h2 className="text-2xl font-bold text-center mb-2 text-gradient">
+            <h2 className="text-xl font-serif font-bold text-center mb-2 uppercase tracking-tight border-b-2 border-primary pb-2">
               Mizanur Rahman
             </h2>
             
-            <p className="text-sm text-muted-foreground text-center leading-relaxed">
-              Full-Stack Web Developer passionate about building scalable and modern web apps.
+            <p className="text-xs text-muted-foreground text-center leading-relaxed uppercase tracking-wider">
+              Full-Stack Web Developer
             </p>
           </div>
 
           {/* Social Links */}
-          <div className="flex justify-center gap-4 mb-8">
+          <div className="flex justify-center gap-3 mb-8">
             {socialLinks.map((social) => (
               <a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-card border border-primary/30 hover:border-primary transition-all hover:glow-cyan"
+                className="p-2 bg-card border border-foreground/20 hover:bg-primary hover:text-background transition-all"
                 aria-label={social.label}
               >
-                <social.icon className="w-5 h-5 text-primary" />
+                <social.icon className="w-4 h-4" />
               </a>
             ))}
           </div>
@@ -96,16 +96,16 @@ const Sidebar = ({ activeSection, onNavigate }: SidebarProps) => {
                 <li key={item.id}>
                   <button
                     onClick={() => handleNavigate(item.id)}
-                    className={`w-full text-left px-4 py-3 rounded-lg transition-all relative group ${
+                    className={`w-full text-left px-4 py-2 transition-all relative uppercase text-xs tracking-wider ${
                       activeSection === item.id
-                        ? "bg-primary/10 text-primary border border-primary/50 glow-cyan"
-                        : "text-muted-foreground hover:text-foreground hover:bg-card"
+                        ? "bg-primary text-background font-bold"
+                        : "text-muted-foreground hover:text-foreground hover:bg-card border-l-2 border-transparent hover:border-primary"
                     }`}
                   >
                     {activeSection === item.id && (
-                      <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full glow-cyan" />
+                      <span className="absolute left-0 top-0 bottom-0 w-1 bg-background" />
                     )}
-                    <span className="ml-2 font-medium">{item.label}</span>
+                    <span>{item.label}</span>
                   </button>
                 </li>
               ))}
@@ -113,9 +113,9 @@ const Sidebar = ({ activeSection, onNavigate }: SidebarProps) => {
           </nav>
 
           {/* Footer */}
-          <div className="mt-8 pt-6 border-t border-primary/20">
-            <p className="text-xs text-muted-foreground text-center">
-              © 2025 Mizanur Rahman
+          <div className="mt-8 pt-4 border-t border-foreground/20">
+            <p className="text-xs text-muted-foreground text-center uppercase tracking-widest">
+              © 2025
             </p>
           </div>
         </div>

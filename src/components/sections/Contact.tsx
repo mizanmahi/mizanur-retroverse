@@ -45,24 +45,24 @@ const Contact = () => {
   return (
     <section id="contact" className="min-h-screen flex items-center py-20 px-6">
       <div className="max-w-4xl mx-auto w-full">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">Get In Touch</h2>
-        <p className="text-xl text-muted-foreground mb-12">
+        <h2 className="text-4xl md:text-5xl font-serif font-black mb-2 uppercase border-b-4 border-primary inline-block">Contact</h2>
+        <p className="text-sm text-muted-foreground mb-12 border-l-2 border-primary pl-4 mt-6">
           Have a project in mind or just want to connect? Let's talk!
         </p>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Info */}
-          <div className="space-y-6">
-            <div className="p-6 rounded-xl bg-card border border-primary/20">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-lg bg-primary/10">
-                  <Mail className="w-6 h-6 text-primary" />
+          <div className="space-y-4">
+            <div className="p-4 bg-card border-2 border-foreground/20">
+              <div className="flex items-start gap-3">
+                <div className="p-2 border border-primary">
+                  <Mail className="w-4 h-4 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">Email</h3>
+                  <h3 className="font-bold mb-1 text-xs uppercase tracking-wide">Email</h3>
                   <a
                     href="mailto:mizan@example.com"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-xs text-muted-foreground hover:text-primary transition-colors"
                   >
                     mizan@example.com
                   </a>
@@ -70,34 +70,34 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="p-6 rounded-xl bg-card border border-primary/20">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-lg bg-primary/10">
-                  <MapPin className="w-6 h-6 text-primary" />
+            <div className="p-4 bg-card border-2 border-foreground/20">
+              <div className="flex items-start gap-3">
+                <div className="p-2 border border-primary">
+                  <MapPin className="w-4 h-4 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">Location</h3>
-                  <p className="text-muted-foreground">Dhaka, Bangladesh</p>
+                  <h3 className="font-bold mb-1 text-xs uppercase tracking-wide">Location</h3>
+                  <p className="text-xs text-muted-foreground">Dhaka, Bangladesh</p>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 rounded-xl border-gradient">
-              <p className="text-muted-foreground leading-relaxed">
+            <div className="p-4 border-4 border-double border-foreground/30 bg-card">
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
               </p>
             </div>
           </div>
 
           {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-3">
             <div>
               <Input
                 name="name"
-                placeholder="Your Name"
+                placeholder="YOUR NAME"
                 value={formData.name}
                 onChange={handleChange}
-                className="bg-card border-primary/30 focus:border-primary"
+                className="bg-card border-2 border-foreground/30 focus:border-primary text-xs uppercase tracking-wider"
               />
             </div>
             
@@ -105,31 +105,31 @@ const Contact = () => {
               <Input
                 name="email"
                 type="email"
-                placeholder="Your Email"
+                placeholder="YOUR EMAIL"
                 value={formData.email}
                 onChange={handleChange}
-                className="bg-card border-primary/30 focus:border-primary"
+                className="bg-card border-2 border-foreground/30 focus:border-primary text-xs uppercase tracking-wider"
               />
             </div>
             
             <div>
               <Textarea
                 name="message"
-                placeholder="Your Message"
+                placeholder="YOUR MESSAGE"
                 rows={6}
                 value={formData.message}
                 onChange={handleChange}
-                className="bg-card border-primary/30 focus:border-primary resize-none"
+                className="bg-card border-2 border-foreground/30 focus:border-primary resize-none text-xs"
               />
             </div>
             
             <Button
               type="submit"
               size="lg"
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl transition-all hover:scale-105 glow-cyan"
+              className="w-full bg-primary hover:bg-primary/90 text-background font-bold uppercase tracking-wider text-xs transition-all"
             >
               Send Message
-              <Send className="ml-2 w-5 h-5" />
+              <Send className="ml-2 w-4 h-4" />
             </Button>
           </form>
         </div>
