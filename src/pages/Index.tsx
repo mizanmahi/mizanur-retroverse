@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import CyberGrid from "@/components/CyberGrid";
 import Sidebar from "@/components/Sidebar";
+import TerminalChat from "@/components/TerminalChat";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Skills from "@/components/sections/Skills";
@@ -11,6 +12,7 @@ import Contact from "@/components/sections/Contact";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("home");
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,10 +45,14 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <CyberGrid />
-      <Sidebar activeSection={activeSection} onNavigate={handleNavigate} />
+      <Sidebar 
+        activeSection={activeSection} 
+        onNavigate={handleNavigate}
+        onOpenChat={() => setIsChatOpen(true)}
+      />
       
       <main className="lg:ml-80 relative">
-        <Hero onNavigate={handleNavigate} />
+        <Hero onNavigate={handleNavigate} onOpenChat={() => setIsChatOpen(true)} />
         <About />
         <Skills />
         <Services />
@@ -54,6 +60,8 @@ const Index = () => {
         <Experience />
         <Contact />
       </main>
+
+      <TerminalChat isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </div>
   );
 };

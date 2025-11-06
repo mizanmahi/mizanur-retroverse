@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button";
 
 interface HeroProps {
   onNavigate: (section: string) => void;
+  onOpenChat: () => void;
 }
 
-const Hero = ({ onNavigate }: HeroProps) => {
+const Hero = ({ onNavigate, onOpenChat }: HeroProps) => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-6">
       <div className="max-w-4xl mx-auto">
@@ -33,12 +34,12 @@ const Hero = ({ onNavigate }: HeroProps) => {
             </Button>
             
             <Button
-              onClick={() => onNavigate("contact")}
+              onClick={onOpenChat}
               size="lg"
               variant="outline"
-              className="border-2 border-foreground hover:bg-foreground hover:text-background px-8 py-5 text-sm font-bold uppercase tracking-wider transition-all"
+              className="border-2 border-primary hover:bg-primary hover:text-background px-8 py-5 text-sm font-bold uppercase tracking-wider transition-all"
             >
-              Contact Me
+              Talk With Me
               <Download className="ml-2 w-4 h-4" />
             </Button>
           </div>

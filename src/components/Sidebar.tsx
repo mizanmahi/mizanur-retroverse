@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
+import { Menu, X, Github, Linkedin, Mail, Terminal } from "lucide-react";
 import profileImage from "@/assets/profile.jpg";
 
 interface SidebarProps {
   activeSection: string;
   onNavigate: (section: string) => void;
+  onOpenChat: () => void;
 }
 
-const Sidebar = ({ activeSection, onNavigate }: SidebarProps) => {
+const Sidebar = ({ activeSection, onNavigate, onOpenChat }: SidebarProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
@@ -112,8 +113,19 @@ const Sidebar = ({ activeSection, onNavigate }: SidebarProps) => {
             </ul>
           </nav>
 
+          {/* Talk With Me Button */}
+          <div className="mb-6">
+            <button
+              onClick={onOpenChat}
+              className="w-full border-2 border-primary bg-primary/10 px-4 py-3 font-mono text-sm uppercase tracking-wider text-primary hover:bg-primary hover:text-background transition-all"
+            >
+              <Terminal className="inline-block mr-2 h-4 w-4" />
+              Talk With Me
+            </button>
+          </div>
+
           {/* Footer */}
-          <div className="mt-8 pt-4 border-t border-foreground/20">
+          <div className="pt-4 border-t border-foreground/20">
             <p className="text-xs text-muted-foreground text-center uppercase tracking-widest">
               © 2025
             </p>
