@@ -49,17 +49,48 @@ const TerminalChat = ({ isOpen, onClose }: TerminalChatProps) => {
     setInput("");
     setIsTyping(true);
 
-    // Simulate agent response (replace with actual API call later)
-    setTimeout(() => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            messages: [...messages, userMessage].map((m) => ({
+              role: m.sender === "user" ? "user" : "assistant",
+              content: m.text,
+            })),
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to get response");
+      }
+
+      const data = await response.json();
       const agentMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: "Thanks for your message! The AI agent will be integrated soon.",
+        text: data.message,
         sender: "agent",
         timestamp: new Date(),
       };
+
       setMessages((prev) => [...prev, agentMessage]);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: "Sorry, I encountered an error. Please try again.",
+        sender: "agent",
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+    } finally {
       setIsTyping(false);
-    }, 1000);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
