@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const Skills = () => {
   const skillCategories = [
     {
@@ -25,12 +27,23 @@ const Skills = () => {
   return (
     <section id="skills" className="min-h-screen flex items-center py-20 px-6">
       <div className="max-w-6xl mx-auto w-full">
-        <h2 className="text-4xl md:text-5xl font-serif font-black mb-2 uppercase border-b-4 border-primary inline-block">Skills</h2>
-        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-12">Technical Expertise</p>
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-serif font-black mb-2 uppercase border-b-4 border-primary inline-block">Skills</h2>
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-12">Technical Expertise</p>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6">
           {skillCategories.map((category, idx) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
               key={category.category}
               className="p-6 bg-card border-2 border-foreground/20 hover:border-primary transition-all group"
               style={{ animationDelay: `${idx * 100}ms` }}
@@ -51,15 +64,21 @@ const Skills = () => {
                   </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        <div className="mt-12 p-6 border-4 border-double border-foreground/30 bg-card text-center">
+        <motion.div 
+          className="mt-12 p-6 border-4 border-double border-foreground/30 bg-card text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           <p className="text-sm text-muted-foreground uppercase tracking-wide">
             Continuously learning and adapting to new technologies
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

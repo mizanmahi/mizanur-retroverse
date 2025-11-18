@@ -1,5 +1,7 @@
 import { ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import FloatingGeometry from "@/components/FloatingGeometry";
 
 interface HeroProps {
   onNavigate: (section: string) => void;
@@ -8,9 +10,20 @@ interface HeroProps {
 
 const Hero = ({ onNavigate, onOpenChat }: HeroProps) => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-6">
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-12 border-4 border-double border-foreground p-8 bg-card">
+    <section id="home" className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
+      <FloatingGeometry />
+      <motion.div 
+        className="max-w-4xl mx-auto relative z-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <motion.div 
+          className="mb-12 border-4 border-double border-foreground p-8 bg-card"
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <div className="text-center border-b-2 border-primary pb-6 mb-6">
             <p className="text-xs uppercase tracking-widest mb-2 text-muted-foreground">Est. 2019</p>
             <h1 className="text-5xl md:text-7xl font-serif font-black mb-4 leading-none uppercase">
@@ -43,20 +56,28 @@ const Hero = ({ onNavigate, onOpenChat }: HeroProps) => {
               <Download className="ml-2 w-4 h-4" />
             </Button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Tech stack tags */}
-        <div className="flex flex-wrap justify-center gap-2">
-          {["React", "Node.js", "TypeScript", "PostgreSQL", "Docker", "AI/ML"].map((tech) => (
-            <span
+        <motion.div 
+          className="flex flex-wrap justify-center gap-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          {["React", "Node.js", "TypeScript", "PostgreSQL", "Docker", "AI/ML"].map((tech, index) => (
+            <motion.span
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
               key={tech}
               className="px-3 py-1 bg-background border border-foreground/30 text-xs uppercase tracking-wider hover:bg-primary hover:text-background hover:border-primary transition-all cursor-default"
             >
               {tech}
-            </span>
+            </motion.span>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
