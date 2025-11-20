@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import CyberGrid from "@/components/CyberGrid";
 import Sidebar from "@/components/Sidebar";
 import TerminalChat from "@/components/TerminalChat";
+import ParticleField from "@/components/ParticleField";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Skills from "@/components/sections/Skills";
@@ -45,6 +47,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <CyberGrid />
+      <ParticleField />
       <Sidebar 
         activeSection={activeSection} 
         onNavigate={handleNavigate}
@@ -52,13 +55,70 @@ const Index = () => {
       />
       
       <main className="lg:ml-80 relative">
-        <Hero onNavigate={handleNavigate} onOpenChat={() => setIsChatOpen(true)} />
-        <About />
-        <Skills />
-        <Services />
-        <Portfolio />
-        <Experience />
-        <Contact />
+        <AnimatePresence mode="wait">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Hero onNavigate={handleNavigate} onOpenChat={() => setIsChatOpen(true)} />
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            <About />
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Skills />
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Services />
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Portfolio />
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Experience />
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Contact />
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       <TerminalChat isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
