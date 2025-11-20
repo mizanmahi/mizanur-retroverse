@@ -118,6 +118,10 @@ All colors MUST be HSL.
     background-size: 100% 4px;
     pointer-events: none;
   }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
 }
 
 @layer base {
