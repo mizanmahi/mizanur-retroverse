@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 const Experience = () => {
   const experiences = [
     {
@@ -44,28 +42,15 @@ const Experience = () => {
 
           <div className="space-y-8">
             {experiences.map((exp, idx) => (
-              <motion.div
+              <div
                 key={exp.title}
                 className="relative pl-8 md:pl-20"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                style={{ animationDelay: `${idx * 100}ms` }}
               >
                 {/* Timeline dot */}
-                <motion.div 
-                  className="absolute left-0 md:left-6 top-2 w-5 h-5 bg-primary border-2 border-background"
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: idx * 0.1 + 0.2 }}
-                />
+                <div className="absolute left-0 md:left-6 top-2 w-5 h-5 bg-primary border-2 border-background" />
 
-                <motion.div 
-                  className="p-6 bg-card border-2 border-foreground/20 hover:border-primary transition-all group"
-                  whileHover={{ scale: 1.02, x: 10 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
+                <div className="p-6 bg-card border-2 border-foreground/20 hover:border-primary transition-all group">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2 pb-2 border-b border-foreground/20">
                     <h3 className="text-lg font-serif font-bold uppercase">{exp.title}</h3>
                     <span className="text-xs text-muted-foreground mt-1 md:mt-0 uppercase tracking-wider">{exp.period}</span>
@@ -78,8 +63,8 @@ const Experience = () => {
                   </div>
                   
                   <p className="text-xs text-muted-foreground leading-relaxed">{exp.description}</p>
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
             ))}
           </div>
         </div>

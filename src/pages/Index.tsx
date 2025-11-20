@@ -47,7 +47,6 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <CyberGrid />
-      <ParticleField />
       <Sidebar 
         activeSection={activeSection} 
         onNavigate={handleNavigate}
@@ -55,70 +54,14 @@ const Index = () => {
       />
       
       <main className="lg:ml-80 relative">
-        <AnimatePresence mode="wait">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Hero onNavigate={handleNavigate} onOpenChat={() => setIsChatOpen(true)} />
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
-            <About />
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Skills />
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Services />
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Portfolio />
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Experience />
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Contact />
-          </motion.div>
-        </AnimatePresence>
+        <ParticleField />
+        <Hero onNavigate={handleNavigate} onOpenChat={() => setIsChatOpen(true)} />
+        <About />
+        <Skills />
+        <Services />
+        <Portfolio />
+        <Experience />
+        <Contact />
       </main>
 
       <TerminalChat isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
