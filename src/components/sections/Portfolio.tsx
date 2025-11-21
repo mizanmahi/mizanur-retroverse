@@ -22,7 +22,7 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="min-h-screen flex items-center py-20 px-6">
+    <section id="portfolio" className="min-h-screen flex items-center py-20 px-6 relative z-10">
       <div className="max-w-6xl mx-auto w-full">
         <h2 className="text-4xl md:text-5xl font-serif font-black mb-2 uppercase border-b-4 border-primary inline-block">Portfolio</h2>
         <p className="text-xs uppercase tracking-widest text-muted-foreground mb-12">Featured Work</p>
