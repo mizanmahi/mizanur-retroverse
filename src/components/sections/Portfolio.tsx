@@ -8,16 +8,16 @@ const Portfolio = () => {
       description: "A comprehensive solar marketplace platform connecting buyers and sellers in the renewable energy sector.",
       tech: ["React", "Node.js", "PostgreSQL", "AWS"],
       gradient: "from-primary/20 to-secondary/20",
-      link: "#",
-      github: "#",
+      link: "https://solruf.com",
+      github: "https://github.com",
     },
     {
       title: "Lyceum",
       description: "An AI-powered learning platform that personalizes education with intelligent course recommendations.",
       tech: ["Next.js", "OpenAI", "Prisma", "TypeScript"],
       gradient: "from-secondary/20 to-neon-pink/20",
-      link: "#",
-      github: "#",
+      link: "https://lyceum.com",
+      github: "https://github.com",
     },
   ];
 
