@@ -57,10 +57,9 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        neon: {
-          cyan: "hsl(var(--neon-cyan))",
-          purple: "hsl(var(--neon-purple))",
-          pink: "hsl(var(--neon-pink))",
+        magenta: {
+          DEFAULT: "hsl(var(--magenta-glow))",
+          dim: "hsl(var(--magenta-dim))",
         },
         surface: {
           DEFAULT: "hsl(var(--surface))",
