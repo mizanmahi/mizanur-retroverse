@@ -8,55 +8,55 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 95%;
+    --background: 280 20% 6%;
+    --foreground: 300 10% 95%;
 
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 95%;
+    --card: 280 15% 10%;
+    --card-foreground: 300 10% 95%;
 
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 280 15% 10%;
+    --popover-foreground: 300 10% 95%;
 
-    --primary: 120 100% 35%;
+    --primary: 320 80% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 20%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 280 15% 18%;
+    --secondary-foreground: 300 10% 95%;
 
-    --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 60%;
+    --muted: 280 12% 15%;
+    --muted-foreground: 280 10% 55%;
 
-    --accent: 120 100% 35%;
+    --accent: 320 80% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
-    --ring: 120 100% 35%;
+    --border: 280 15% 20%;
+    --input: 280 15% 12%;
+    --ring: 320 80% 55%;
 
-    --radius: 0.125rem;
+    --radius: 0.25rem;
 
-    /* Custom design tokens - Retro newspaper/terminal */
-    --terminal-green: 120 100% 35%;
-    --terminal-green-dim: 120 60% 25%;
-    --surface: 0 0% 12%;
-    --surface-hover: 0 0% 16%;
-    --paper: 0 0% 98%;
+    /* Custom design tokens - Magenta/Cyberpunk */
+    --magenta-glow: 320 80% 55%;
+    --magenta-dim: 320 60% 35%;
+    --surface: 280 15% 10%;
+    --surface-hover: 280 15% 14%;
+    --paper: 300 10% 98%;
 
     /* Subtle effects */
-    --glow-green: 0 0 10px hsl(120 100% 35% / 0.3);
+    --glow-magenta: 0 0 20px hsl(320 80% 55% / 0.4);
 
     /* Sidebar */
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 120 100% 35%;
-    --sidebar-primary-foreground: 0 0% 8%;
-    --sidebar-accent: 0 0% 15%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 120 100% 35%;
+    --sidebar-background: 280 20% 8%;
+    --sidebar-foreground: 300 10% 95%;
+    --sidebar-primary: 320 80% 55%;
+    --sidebar-primary-foreground: 280 20% 6%;
+    --sidebar-accent: 280 15% 13%;
+    --sidebar-accent-foreground: 300 10% 95%;
+    --sidebar-border: 280 15% 20%;
+    --sidebar-ring: 320 80% 55%;
   }
 }
 
@@ -80,8 +80,8 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  .glow-green {
-    box-shadow: var(--glow-green);
+  .glow-magenta {
+    box-shadow: var(--glow-magenta);
   }
 
   .text-gradient {
@@ -104,9 +104,28 @@ All colors MUST be HSL.
     letter-spacing: -0.02em;
   }
 
-  .retro-dots {
-    background-image: radial-gradient(hsl(var(--primary) / 0.15) 1px, transparent 1px);
-    background-size: 4px 4px;
+  .magenta-orb-grid {
+    background-color: hsl(280 20% 6%);
+    background-image: 
+      /* Grid lines */
+      linear-gradient(to right, hsl(320 80% 55% / 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(320 80% 55% / 0.1) 1px, transparent 1px),
+      /* Orbs - 3D sphere effect */
+      radial-gradient(circle at 75% 25%, hsl(320 80% 70% / 0.8), transparent 30%),
+      radial-gradient(circle at 25% 75%, hsl(280 60% 20% / 0.5), transparent 30%),
+      radial-gradient(circle at 50% 50%, hsl(320 80% 45% / 0.6), transparent 50%);
+    background-size: 
+      60px 60px,
+      60px 60px,
+      60px 60px,
+      60px 60px,
+      60px 60px;
+    background-position:
+      0 0,
+      0 0,
+      0 0,
+      60px 60px,
+      0 0;
   }
 
   .scanline {
