@@ -2,61 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 280 20% 6%;
-    --foreground: 300 10% 95%;
+    --background: 222 47% 4%;
+    --foreground: 0 0% 98%;
 
-    --card: 280 15% 10%;
-    --card-foreground: 300 10% 95%;
+    --card: 222 40% 8%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 280 15% 10%;
-    --popover-foreground: 300 10% 95%;
+    --popover: 222 40% 8%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 320 80% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 222 47% 4%;
 
-    --secondary: 280 15% 18%;
-    --secondary-foreground: 300 10% 95%;
+    --secondary: 222 30% 14%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 280 12% 15%;
-    --muted-foreground: 280 10% 55%;
+    --muted: 222 25% 12%;
+    --muted-foreground: 215 20% 55%;
 
-    --accent: 320 80% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 0 0% 98%;
+    --accent-foreground: 222 47% 4%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 280 15% 20%;
-    --input: 280 15% 12%;
-    --ring: 320 80% 55%;
+    --border: 215 25% 20%;
+    --input: 222 30% 10%;
+    --ring: 0 0% 98%;
 
     --radius: 0.25rem;
 
-    /* Custom design tokens - Magenta/Cyberpunk */
-    --magenta-glow: 320 80% 55%;
-    --magenta-dim: 320 60% 35%;
-    --surface: 280 15% 10%;
-    --surface-hover: 280 15% 14%;
-    --paper: 300 10% 98%;
-
-    /* Subtle effects */
-    --glow-magenta: 0 0 20px hsl(320 80% 55% / 0.4);
+    /* Custom design tokens */
+    --surface: 222 40% 8%;
+    --surface-hover: 222 35% 12%;
 
     /* Sidebar */
-    --sidebar-background: 280 20% 8%;
-    --sidebar-foreground: 300 10% 95%;
-    --sidebar-primary: 320 80% 55%;
-    --sidebar-primary-foreground: 280 20% 6%;
-    --sidebar-accent: 280 15% 13%;
-    --sidebar-accent-foreground: 300 10% 95%;
-    --sidebar-border: 280 15% 20%;
-    --sidebar-ring: 320 80% 55%;
+    --sidebar-background: 222 45% 5%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 222 47% 4%;
+    --sidebar-accent: 222 30% 12%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 215 25% 18%;
+    --sidebar-ring: 0 0% 98%;
   }
 }
 
@@ -80,10 +70,6 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  .glow-magenta {
-    box-shadow: var(--glow-magenta);
-  }
-
   .text-gradient {
     color: hsl(var(--primary));
   }
@@ -104,35 +90,11 @@ All colors MUST be HSL.
     letter-spacing: -0.02em;
   }
 
-  .magenta-orb-grid {
-    background-color: hsl(280 20% 6%);
-    background-image: 
-      /* Grid lines */
-      linear-gradient(to right, hsl(320 80% 55% / 0.1) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(320 80% 55% / 0.1) 1px, transparent 1px),
-      /* Orbs - 3D sphere effect */
-      radial-gradient(circle at 75% 25%, hsl(320 80% 70% / 0.8), transparent 30%),
-      radial-gradient(circle at 25% 75%, hsl(280 60% 20% / 0.5), transparent 30%),
-      radial-gradient(circle at 50% 50%, hsl(320 80% 45% / 0.6), transparent 50%);
-    background-size: 
-      60px 60px,
-      60px 60px,
-      60px 60px,
-      60px 60px,
-      60px 60px;
-    background-position:
-      0 0,
-      0 0,
-      0 0,
-      60px 60px,
-      0 0;
-  }
-
   .scanline {
     background: linear-gradient(
       to bottom,
       transparent 50%,
-      hsl(var(--primary) / 0.03) 50%
+      hsl(var(--primary) / 0.02) 50%
     );
     background-size: 100% 4px;
     pointer-events: none;
@@ -140,15 +102,5 @@ All colors MUST be HSL.
 
   .perspective-1000 {
     perspective: 1000px;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
   }
 }
