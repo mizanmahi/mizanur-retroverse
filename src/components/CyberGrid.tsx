@@ -1,6 +1,6 @@
 const CyberGrid = () => {
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none bg-[#020617]">
+    <div className="fixed top-0 right-0 bottom-0 left-0 lg:left-80 -z-10 overflow-hidden pointer-events-none bg-[#020617]">
       {/* Magenta Orb Grid Background */}
       <div
         className="absolute inset-0 z-0"
